@@ -52,7 +52,7 @@ export default {
         },
         async addNewUser({ commit, state }, payload) {
             try {
-                await axios.post(
+                const { data } = await axios.post(
                     `https://recipe-vue-batch2-default-rtdb.firebaseio.com/user.json?auth=${state.token}`, payload);
                 commit("setUserLogin", { userData: payload, loginStatus: true });
             } catch (err) {

@@ -66,7 +66,7 @@
             confirmationPasswordMatch.value = "none";
         } else {
             await store.dispatch("auth/getRegisterData", signupData);
-            router.push("/");
+            router.push("/"); // redirect back to home after correct
         }
     };
 
