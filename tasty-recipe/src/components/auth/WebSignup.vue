@@ -36,14 +36,16 @@
             confirmationPasswordDoesNotMatch.value = "none"
             confirmationPasswordMatch.value = "none"
             return;
-        } else if (signupData.password !== signupData.confirmationPassword) {
+        } 
+        
+        if (signupData.password !== signupData.confirmationPassword) {
             confirmationPasswordDoesNotMatch.value = "block"
             confirmationPasswordMatch.value = "none"
             return;
-        } else {
-            confirmationPasswordDoesNotMatch.value = "none"
-            confirmationPasswordMatch.value = "block"
-        }
+        } 
+
+        confirmationPasswordDoesNotMatch.value = "none"
+        confirmationPasswordMatch.value = "block"
     }
 
     const checkImage = (e) => {
@@ -64,7 +66,7 @@
             confirmationPasswordMatch.value = "none";
         } else {
             await store.dispatch("auth/getRegisterData", signupData);
-            router.push("/");
+            router.push("/"); // redirect back to home after correct
         }
     };
 

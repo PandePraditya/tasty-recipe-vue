@@ -39,12 +39,9 @@ export default {
                 });
 
                 const newUserData = {
-                    userId: data.localId, 
-                    firstname: payload.firstname, 
-                    lastname: payload.lastname, 
-                    username: payload.username, 
-                    email: payload.email, 
-                    imageLink: payload.imageLink
+                    userId: data.localId, firstname: payload.firstname, 
+                    lastname: payload.lastname, username: payload.username, 
+                    email: payload.email, imageLink: payload.imageLink,
                 };
 
                 Cookies.set("UID", newUserData.userId);
