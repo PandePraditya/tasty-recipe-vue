@@ -39,12 +39,9 @@ export default {
                 });
 
                 const newUserData = {
-                    userId: data.localId, 
-                    firstname: payload.firstname, 
-                    lastname: payload.lastname, 
-                    username: payload.username, 
-                    email: payload.email, 
-                    imageLink: payload.imageLink
+                    userId: data.localId, firstname: payload.firstname, 
+                    lastname: payload.lastname, username: payload.username, 
+                    email: payload.email, imageLink: payload.imageLink,
                 };
 
                 Cookies.set("UID", newUserData.userId);
@@ -55,7 +52,7 @@ export default {
         },
         async addNewUser({ commit, state }, payload) {
             try {
-                const { data } = await axios.post(
+                await axios.post(
                     `https://recipe-vue-batch2-default-rtdb.firebaseio.com/user.json?auth=${state.token}`, payload);
                 commit("setUserLogin", { userData: payload, loginStatus: true });
             } catch (err) {
