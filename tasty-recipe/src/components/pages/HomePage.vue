@@ -34,5 +34,8 @@
             </p>
         </div>
         <recipe-list :recipes="recipeList" v-if="recipeListStatus"></recipe-list>
+        <!-- <router-link to="/recipe/1">
+            <recipe-list :recipes="recipeList"></recipe-list>
+        </router-link> -->
     </div>
 </template>
