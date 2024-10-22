@@ -63,7 +63,7 @@
             confirmationPasswordDoesNotMatch.value = "none";
             confirmationPasswordMatch.value = "none";
         } else {
-            await store.dispatch("auth.getRegisterData", signupData);
+            await store.dispatch("auth/getRegisterData", signupData);
             router.push("/");
         }
     };
