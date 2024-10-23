@@ -20,6 +20,7 @@
 
     const route = useRoute();
 
+    // Component mapping
     const component = {
         "personal-info": PersonalInfo,
         "favorite-recipe": FavoriteRecipe,

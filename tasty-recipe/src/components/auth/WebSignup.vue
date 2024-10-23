@@ -15,7 +15,7 @@
         email: "",
         password: "",
         confirmationPassword: "",
-        isLoginL: false,
+        isLogin: false,
         imageLink: "",
     });
 

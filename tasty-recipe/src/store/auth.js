@@ -1,5 +1,5 @@
 import axios from "axios";
-import Cookies from "js-cookie";
+import cookies from "js-cookie";
 
 export default {
     namespaced: true,
@@ -15,21 +15,21 @@ export default {
         setToken(state, { idToken, expiresIn }) {
             state.token = idToken;
             state.tokenExpirationDate = expiresIn;
-            Cookies.set("tokenExpirationDate", expiresIn);
-            Cookies.set("jwt", idToken);
+            cookies.set("tokenExpirationDate", expiresIn);
+            cookies.set("jwt", idToken);
         },
         setUserLogin(state, { userData, loginStatus }) {
             state.userLogin = userData;
             state.isLogin = loginStatus;
         },
         setUserLogout(state) {
-            state.token = null;
-            state.userLogin = {};
-            state.isLogin = false;
-            state.tokenExpirationDate = null;
-            Cookies.remove("jwt");
-            Cookies.remove("tokenExpirationDate");
-            Cookies.remove("UID");
+            state.token = null
+            state.userLogin = {}
+            state.isLogin = false
+            state.tokenExpirationDate = null
+            cookies.remove("jwt");
+            cookies.remove("tokenExpirationDate");
+            cookies.remove("UID");
         }
     
     },
@@ -55,7 +55,7 @@ export default {
                     email: payload.email, imageLink: payload.imageLink,
                 };
 
-                Cookies.set("UID", newUserData.userId);
+                cookies.set("UID", newUserData.userId);
                 await dispatch("addNewUser", newUserData);
             } catch (err) {
                 console.log(err);
@@ -97,8 +97,9 @@ export default {
                 const { data } = await axios.get(`https://recipe-vue-batch2-default-rtdb.firebaseio.com/user.json`);
                 for (let key in data) {
                     if (data[key].userId === payload) {
-                        Cookies.set("UID", data[key].userId)
-                        commit("setUserLogin", { userData: data[key], loginStatus: true });
+                        cookies.set("UID", data[key].userId)
+                        commit("setUserLogin", 
+                            { userData: data[key], loginStatus: true });
                     }
                 }
             } catch (err) {

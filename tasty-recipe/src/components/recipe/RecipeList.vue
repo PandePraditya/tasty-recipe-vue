@@ -14,7 +14,7 @@
                     <div class="h-50">
                         <h4 class="fs-5 mb-0">{{ recipe.name }}</h4>
                     </div>
-                    <p>Recipe By Gordon Ramsay</p>
+                    <p>Recipe By {{ recipe.username }}</p>
                 </div>
             </router-link>
             <div class="position-absolute text-secondary bg-light px-2 py-1 rounded-circle top-0 end-0 m-4 like-icon">
