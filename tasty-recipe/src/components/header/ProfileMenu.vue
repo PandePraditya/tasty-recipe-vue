@@ -1,3 +1,17 @@
+<script setup>
+    import { useStore } from 'vuex';
+    import { useRouter } from 'vue-router';
+
+    const store = useStore();
+    const router = useRouter();
+
+    const logout = () => {
+        store.commit("auth/setUserLogout");
+        router.push("/");
+    }
+
+</script>
+
 <template>
     <div class="header__signup col-8 col-sm-4 fw-semibold d-flex justify-content-evenly align-items-center text-decoration-none"
         style="text-align: right">
@@ -8,13 +22,13 @@
                     My Profile
                 </a>
                 <ul class="dropdown-menu">
-                    <li class="dropdown-item">My Profile</li>
-                    <li class="dropdown-item">Favorited Recipes</li>
-                    <li class="dropdown-item">My Recipes</li>
+                    <router-link to="/user/personal-info" class="dropdown-item">My Profile</router-link>
+                    <router-link to="/user/favorite-recipe" class="dropdown-item">Favorited Recipes</router-link>
+                    <router-link to="/user/user-recipe" class="dropdown-item">My Recipes</router-link>
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li class="dropdown-item">Logout</li>
+                    <li class="dropdown-item" @click="logout">Logout</li>
                 </ul>
             </li>
         </ul>
