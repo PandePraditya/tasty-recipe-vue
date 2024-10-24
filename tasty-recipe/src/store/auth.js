@@ -75,7 +75,6 @@ export default {
         async getLoginData({ commit, dispatch }, payload) {
             const APIkey = "AIzaSyBH-iZEX7bK1Bj1j6XkpFa1fukRuM_NzX0";
             const authUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
-
             try { 
                 const { data } = await axios.post(authUrl + APIkey, {
                     email: payload.email, 
@@ -94,6 +93,7 @@ export default {
         // Get user data
         async getUser({ commit }, payload) {
             try {
+                console.log(payload);
                 const { data } = await axios.get(`https://recipe-vue-batch2-default-rtdb.firebaseio.com/user.json`);
                 for (let key in data) {
                     if (data[key].userId === payload) {

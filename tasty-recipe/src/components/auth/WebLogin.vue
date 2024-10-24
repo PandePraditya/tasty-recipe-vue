@@ -18,7 +18,7 @@
     const login = async () => {
         await store.dispatch("auth/getLoginData", loginData);
         router.push("/"); // redirect back to home
-    }
+    };
 
 </script>
 

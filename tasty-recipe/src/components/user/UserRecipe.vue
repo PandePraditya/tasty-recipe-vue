@@ -17,7 +17,12 @@
             <p class="mt-2 mb-4 fs-5 fw-semibold">Recipe</p>
             <div class="row">
                 <!-- User Recipe Card -->
+                <user-recipe-card></user-recipe-card>
             </div>
         </li>
     </ul>
 </template>
+
+<script setup>
+    import UserRecipeCard from './UserRecipeCard.vue';
+</script>

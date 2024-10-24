@@ -37,6 +37,6 @@
         return store.state.auth.userLogin;
     });
 
-    console.log(userData.value)
-    console.log(store.state.auth.userLogin)
+    // console.log(userData.value)
+    // console.log(store.state.auth.userLogin)
 </script>
