@@ -65,7 +65,7 @@ export default {
         async addNewUser({ commit, state }, payload) {
             try {
                 const { data } = await axios.post(
-                    `https://recipe-vue-batch2-default-rtdb.firebaseio.com/user.json?auth=${state.token}`, payload);
+                    `https://vue-js-project-1-d2493-default-rtdb.firebaseio.com/user.json?auth=${state.token}`, payload);
                 commit("setUserLogin", { userData: payload, loginStatus: true });
             } catch (err) {
                 console.log(err);
@@ -93,8 +93,7 @@ export default {
         // Get user data
         async getUser({ commit }, payload) {
             try {
-                console.log(payload);
-                const { data } = await axios.get(`https://recipe-vue-batch2-default-rtdb.firebaseio.com/user.json`);
+                const { data } = await axios.get(`https://vue-js-project-1-d2493-default-rtdb.firebaseio.com/user.json`);
                 for (let key in data) {
                     if (data[key].userId === payload) {
                         cookies.set("UID", data[key].userId)

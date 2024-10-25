@@ -2,6 +2,8 @@ import HomePage from "./components/pages/HomePage.vue"
 import LoginPage from "./components/pages/LoginPage.vue"
 import SignupPage from "./components/pages/SignupPage.vue"
 import DetailPage from "./components/pages/DetailPage.vue"
+import NewRecipePage from "./components/pages/NewRecipePage.vue"
+import EditRecipePage from "./components/pages/EditRecipePage.vue"
 import UserPage from "./components/pages/UserPage.vue"
 import cookies from "js-cookie";
 import { store } from "./store/index";
@@ -44,8 +46,24 @@ export const routes = [
         path: "/user/:component", 
         name: "userPage", 
         component: UserPage,
-        beforeEnter: (tp, from, next) => {
+        beforeEnter: (to, from, next) => {
             checkAuth() ? next() : next({ name: "login" }); // redirect to login if not authenticated
         },
+    },
+    { 
+        path: "/new-recipe", 
+        name: "newRecipePage", 
+        component: NewRecipePage,
+        beforeEnter: (to, from, next) => {
+            checkAuth() ? next() : next({ name: "login" }); // redirect to login if not authenticated
+        }
+    },
+    {
+        path: "/recipe/edit/:id",
+        name: "editRecipePage",
+        component: EditRecipePage,
+        beforeEnter: (to, from, next) => {
+            checkAuth() ? next() : next({ name: "login" }); // redirect to login if not authenticated
+        }
     },
 ]

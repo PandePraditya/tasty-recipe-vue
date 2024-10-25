@@ -20,7 +20,7 @@
             recipeListStatus.value = true;
             recipeList.value = store.state.recipe.recipes;
         } catch (error) {
-            consloe.log(error);
+            console.log(error);
         }
     });
 </script>

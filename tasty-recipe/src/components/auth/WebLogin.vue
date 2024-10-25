@@ -19,7 +19,6 @@
         await store.dispatch("auth/getLoginData", loginData);
         router.push("/"); // redirect back to home
     };
-
 </script>
 
 <template>
@@ -32,7 +31,7 @@
             </div>
             <form @submit.prevent="login">
                 <div class="my-4">
-                    <base-input type="text" identity="email" placeholder="Ex: johndoe@gmail.com" label="Email" v-model="loginData.email">
+                    <base-input type="email" identity="email" placeholder="Ex: johndoe@gmail.com" label="Email" v-model="loginData.email">
                     </base-input>
                 </div>
                 <div class="my-4">
