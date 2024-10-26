@@ -25,7 +25,7 @@ export default {
     },
     actions: {
         async getRegisterData({ commit, dispatch }, payload) {
-            const APIkey = "AIzaSyBH-iZEX7bK1Bj1j6XkpFa1fukRuM_NzX0";
+            const APIkey = "[API_KEY]";
             const authUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=";
             try {
                 const { data } = await axios.post(authUrl + APIkey, {
