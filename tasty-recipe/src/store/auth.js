@@ -31,7 +31,6 @@ export default {
             cookies.remove("tokenExpirationDate");
             cookies.remove("UID");
         }
-    
     },
     actions: {
         // Register user

@@ -140,7 +140,7 @@
     import BaseButton from '../ui/BaseButton.vue';
     import BaseTextArea from '../ui/BaseTextArea.vue';
     import BaseSelect from '../ui/BaseSelect.vue';
-    import { onMounted, reactive, ref } from 'vue';
+    import { onMounted, ref } from 'vue';
     import { useStore } from 'vuex';
     import { useRouter, useRoute } from 'vue-router';
 
@@ -154,7 +154,7 @@
     });
 
     // Coba diganti ke ref
-    const recipeData = reactive({
+    const recipeData = ref({
         imageLink: "",
         name: "",
         description: "",
@@ -178,17 +178,17 @@
     };
 
     const deleteIngredient = (index) => {
-        recipeData.ingredients.splice(index, 1);
+        recipeData.value.ingredients.splice(index, 1);
         ingredientCount.value--;
     };
 
     const deleteDirection = (index) => {
-        recipeData.directions.splice(index, 1);
+        recipeData.value.directions.splice(index, 1);
         directionCount.value--;
     };
 
     const totalTime = () => {
-        recipeData.totalTime = parseInt(recipeData.prepTime) + parseInt(recipeData.cookTime);
+        recipeData.value.totalTime = parseInt(recipeData.value.prepTime) + parseInt(recipeData.value.cookTime);
     };
 
     const checkImage = (e) => {
@@ -197,7 +197,7 @@
         reader.readAsDataURL(file);
 
         reader.addEventListener("load", () => {
-            recipeData.imageLink = reader.result;
+            recipeData.value.imageLink = reader.result;
         });
     };
 
@@ -217,38 +217,37 @@
     };
 
     // Old code
-    // onMounted(() => {
-    //     if (props.isEdit) {
-    //         Object.assign(recipeData, store.state.recipe.recipeDetail);
-    //         ingredientCount.value = recipeData.value.ingredients.length;
-    //         directionCount.value = recipeData.value.directions.length;
-    //         console.log(recipeData);
-    //     } else {
-    //         console.error(recipeData);
-    //     }
-    // });
-
     onMounted(() => {
-    if (props.isEdit) {
-        const recipeDetail = store.state.recipe.recipeDetail;
-
-        if (recipeDetail) {
-            // Assign recipeDetail properties directly to recipeData
-            Object.assign(recipeData, {
-                ...recipeDetail,
-                ingredients: recipeDetail.ingredients || [],
-                directions: recipeDetail.directions || [],
-            });
-
-            // Update counts based on the assigned data
-            ingredientCount.value = recipeData.ingredients.length;
-            directionCount.value = recipeData.directions.length;
-
+        if (props.isEdit) {
+            recipeData.value = store.state.recipe.recipeDetail;
+            ingredientCount.value = recipeData.value.ingredients.length;
+            directionCount.value = recipeData.value.directions.length;
             console.log(recipeData);
         } else {
-            console.error('Recipe detail is undefined');
+            console.error(recipeData);
         }
-    }
-});
+    });
+    
+    // onMounted(() => {
+    // if (props.isEdit) {
+    //     const recipeDetail = store.state.recipe.recipeDetail;
+    //     if (recipeDetail) {
+    //         // Assign recipeDetail properties directly to recipeData
+    //         Object.assign(recipeData, {
+    //             ...recipeDetail,
+    //             ingredients: recipeDetail.ingredients || [],
+    //             directions: recipeDetail.directions || [],
+    //         });
+
+    //         // Update counts based on the assigned data
+    //         ingredientCount.value = recipeData.ingredients.length;
+    //         directionCount.value = recipeData.directions.length;
+
+    //         console.log(recipeData);
+    //     } else {
+    //         console.error('Recipe detail is undefined');
+    //     }
+    //     }
+    // });
 
 </script>
