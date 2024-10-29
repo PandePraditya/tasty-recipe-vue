@@ -213,8 +213,6 @@
             await store.dispatch("recipe/addNewRecipe", recipeData.value);
         }
         router.push("/user/user-recipe");
-        // await store.dispatch("recipe/addNewRecipe", recipeData);
-        // router.push("/user/user-recipe");
     };
 
     // Old code
@@ -228,27 +226,5 @@
             console.error(recipeData);
         }
     });
-    
-    // onMounted(() => {
-    // if (props.isEdit) {
-    //     const recipeDetail = store.state.recipe.recipeDetail;
-    //     if (recipeDetail) {
-    //         // Assign recipeDetail properties directly to recipeData
-    //         Object.assign(recipeData, {
-    //             ...recipeDetail,
-    //             ingredients: recipeDetail.ingredients || [],
-    //             directions: recipeDetail.directions || [],
-    //         });
-
-    //         // Update counts based on the assigned data
-    //         ingredientCount.value = recipeData.ingredients.length;
-    //         directionCount.value = recipeData.directions.length;
-
-    //         console.log(recipeData);
-    //     } else {
-    //         console.error('Recipe detail is undefined');
-    //     }
-    //     }
-    // });
 
 </script>
