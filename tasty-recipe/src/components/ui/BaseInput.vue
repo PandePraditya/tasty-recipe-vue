@@ -4,8 +4,13 @@
             {{ label }} <span style="color: #cb3a31;">*</span>
             <slot></slot>
         </label>
-        <input :class="[{ 'file-input': type == 'file' }, 'form-control']" :type="type" :id="identity"
-            :placeholder="placeholder" :value="modelValue" :readonly="readonly === '1'"
+        <input 
+            :class="[{ 'file-input': type == 'file' }, 'form-control']" 
+            :type="type" 
+            :id="identity"
+            :placeholder="placeholder" 
+            :value="modelValue" 
+            :readonly="readonly === '1'"
             @input="$emit('update:modelValue', $event.target.value)" @keyup="$emit('keyInput', $event.target.value)"
             @focus="$emit('totalTimeFocus', $event.target.value)">
     </div>

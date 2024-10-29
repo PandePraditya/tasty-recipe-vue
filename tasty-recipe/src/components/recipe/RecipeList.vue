@@ -10,7 +10,7 @@
             <router-link :to="`/recipe/${recipe.id}`" class="card text-decoration-none" style="height: 398px"> 
                 <img :src="recipe.imageLink" class="card-img-top" alt="Food" height="240" width="285" style="object-fit: cover" />
                 <div class="card-body" style="color: #0a0a0a">
-                    <p class="mb-0">Dinner</p>
+                    <p class="mb-0">{{ recipe.category }}</p>
                     <div class="h-50">
                         <h4 class="fs-5 mb-0">{{ recipe.name }}</h4>
                     </div>

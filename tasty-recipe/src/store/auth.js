@@ -35,7 +35,7 @@ export default {
     actions: {
         // Register user
         async getRegisterData({ commit, dispatch }, payload) {
-            const APIkey = "[API_KEY]";
+            const APIkey = "AIzaSyBH-iZEX7bK1Bj1j6XkpFa1fukRuM_NzX0";
             const authUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=";
             try {
                 const { data } = await axios.post(authUrl + APIkey, {
@@ -72,7 +72,7 @@ export default {
         },
         // Login user
         async getLoginData({ commit, dispatch }, payload) {
-            const APIkey = "[API_KEY]";
+            const APIkey = "AIzaSyBH-iZEX7bK1Bj1j6XkpFa1fukRuM_NzX0";
             const authUrl = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=";
             try { 
                 const { data } = await axios.post(authUrl + APIkey, {

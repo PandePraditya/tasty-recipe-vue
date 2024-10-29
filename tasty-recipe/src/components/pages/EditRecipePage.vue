@@ -32,8 +32,8 @@
             // Store data ke dalam recipeData
             // console.log(recipeId);
             detailData.value = store.state.recipe.recipeDetail;
-            console.log(detailData.value);
-            console.log(store.state);
+            // console.log(detailData.value);
+            // console.log(store.state);
             isLoading.value = false;
         } catch (err) {
             console.error(err);

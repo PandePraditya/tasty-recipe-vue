@@ -11,9 +11,10 @@
                             type="file" 
                             identity="recipeImage" 
                             label="Photo Image" 
-                            @input="checkImage"></base-input>
+                            @input="checkImage">
+                        </base-input>
                             <div>
-                                <img :src="recipeData.imageLink" :alt="recipeData.name" class="image">
+                                <img :src="recipeData.imageLink" :alt="recipeData.name" class="image" width="300">
                             </div>
                     </div>
                     <!-- Image End -->
@@ -153,7 +154,7 @@
         detailData: { type: Object, default: () => ({}) },
     });
 
-    // Coba diganti ke ref
+    // Use reactive when dealing with Objects or Arrays
     const recipeData = ref({
         imageLink: "",
         name: "",
@@ -209,7 +210,7 @@
                 newRecipe: recipeData.value,
             });
         } else {
-            await store.dispatch("recipe/addNewRecipe", recipeData);
+            await store.dispatch("recipe/addNewRecipe", recipeData.value);
         }
         router.push("/user/user-recipe");
         // await store.dispatch("recipe/addNewRecipe", recipeData);
